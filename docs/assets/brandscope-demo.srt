@@ -1,0 +1,44 @@
+1
+00:00:00,000 --> 00:00:08,000
+01 / Growth overview
+Audit the full dataset. Keep gross sales, returns and net sales visible.
+
+2
+00:00:08,000 --> 00:00:15,000
+02 / Market context
+Sweden: 8 identified shoppers and 34 orders. A small export sample, not a market estimate.
+
+3
+00:00:15,000 --> 00:00:24,000
+03 / Shopper intelligence
+Turn RFM segments, retention and basket associations into hypotheses to test.
+
+4
+00:00:24,000 --> 00:00:33,000
+04 / Contribution economics
+Default assumptions: GBP 255 modelled contribution. Audience is too small for the test.
+
+5
+00:00:33,000 --> 00:00:40,000
+05 / Stress-test the offer
+Raise the discount from 5% to 20%: modelled contribution becomes GBP -825.
+
+6
+00:00:40,000 --> 00:00:43,000
+06 / Real HTTP ingestion
+SQLite-backed event ingestion; explicit synthetic flags; two-second polling.
+
+7
+00:00:43,000 --> 00:00:45,000
+06 / Event received
+A new demonstration order is accepted and the monitor updates.
+
+8
+00:00:45,000 --> 00:00:47,000
+06 / Events persist
+Event IDs deduplicate orders. Demo totals stay separate from historical analysis.
+
+9
+00:00:47,000 --> 00:00:56,000
+07 / Evidence before claims
+Review temporal ranking diagnostics, method boundaries and source references.

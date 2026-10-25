@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="BrandScope — shopper insights, marketing decisions, campaign economics and live activation monitoring."
+    />
+    <meta name="theme-color" content="#722e46" />
+    <title>BrandScope · Brand growth workspace</title>
+    <link rel="icon" href="icon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to workspace</a>
+    <aside class="sidebar">
+      <a href="#overview" class="brand"
+        ><span class="brandmark">b.</span
+        ><span>BrandScope<small>THE GROWTH WORKSPACE</small></span></a
+      >
+      <div class="workspace-label">WORKSPACE <span>01</span></div>
+      <nav aria-label="Workspace">
+        <button data-view="overview" class="active">
+          <span>◈</span>Growth overview
+        </button>
+        <button data-view="shoppers"><span>◎</span>Shopper intelligence</button>
+        <button data-view="campaign"><span>↗</span>Campaign studio</button>
+        <button data-view="live"><span>◉</span>Activation monitor</button>
+        <button data-view="evidence"><span>▤</span>Evidence & methods</button>
+      </nav>
+      <div class="sidebar-note">
+        <span class="mini-label">THE BRAND QUESTION</span>
+        <p>Where should the next marketing pound go?</p>
+        <span>Insight → choice → experiment</span>
+      </div>
+      <div class="profile">
+        <div class="avatar">PA</div>
+        <div>Pavan Amikula<small>Independent portfolio project</small></div>
+      </div>
+    </aside>
+    <div class="shell">
+      <header>
+        <div class="breadcrumb">
+          Workspace <span>/</span> <strong id="crumb">Growth overview</strong>
+        </div>
+        <div class="header-right">
+          <span class="dot"></span><span id="connection">Connecting…</span
+          ><button class="subtle" id="export">Export decision brief ↗</button>
+        </div>
+      </header>
+      <main id="main" tabindex="-1">
+        <div class="titlebar">
+          <div>
+            <div class="eyebrow">BRAND STRATEGY / SHOPPER INSIGHTS</div>
+            <h1 id="page-title">Find the next growth opportunity.</h1>
+            <p id="page-subtitle">
+              From retail signals to a sharper marketing decision.
+            </p>
+          </div>
+          <div class="edition">
+            RESEARCH EDITION<small>01 / RETAIL GROWTH</small>
+          </div>
+        </div>
+        <div class="filterbar">
+          <div class="filters">
+            <label
+              >Market<select id="market">
+                <option>All markets</option>
+                <option>United Kingdom</option>
+                <option>Sweden</option>
+                <option>Nordics</option>
+              </select></label
+            ><label
+              >Analysis window<select id="window">
+                <option value="full">Full dataset</option>
+                <option value="90d">Last 90 days</option>
+              </select></label
+            >
+          </div>
+          <div class="dataset-label">
+            <span class="tiny-dot"></span>UCI · historical transactions
+            <strong id="date-label"></strong>
+          </div>
+        </div>
+        <div id="content">
+          <div class="loading">Preparing the evidence…</div>
+        </div>
+        <footer>
+          <span>BrandScope / An independent brand management case study</span
+          ><span
+            >Observed data ≠ causal impact · All financial data in GBP</span
+          >
+        </footer>
+      </main>
+    </div>
+    <div id="toast" role="status" aria-live="polite"></div>
+    <script src="app.js" defer></script>
+  </body>
+</html>

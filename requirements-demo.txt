@@ -1,0 +1,5 @@
+# Optional: regenerate the captioned walkthrough from committed screenshots.
+Pillow>=10.3
+numpy>=1.26
+imageio>=2.34
+imageio-ffmpeg>=0.5
