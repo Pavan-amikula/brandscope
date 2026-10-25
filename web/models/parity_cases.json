@@ -1,0 +1,158 @@
+[
+  {
+    "profile": {
+      "recency_days": 286.0,
+      "orders": 1.0,
+      "gross_spend": 77183.6,
+      "tenure_days": 286.0,
+      "orders_30d": 0.0,
+      "spend_30d": 0.0,
+      "unique_products": 1.0,
+      "average_order_value": 77183.6
+    },
+    "probability": 0.12620934625764943
+  },
+  {
+    "profile": {
+      "recency_days": 26.0,
+      "orders": 8.0,
+      "gross_spend": 1702.26,
+      "tenure_days": 225.0,
+      "orders_30d": 1.0,
+      "spend_30d": 9.95,
+      "unique_products": 69.0,
+      "average_order_value": 212.7825
+    },
+    "probability": 0.5112311191287868
+  },
+  {
+    "profile": {
+      "recency_days": 290.0,
+      "orders": 1.0,
+      "gross_spend": 534.57,
+      "tenure_days": 290.0,
+      "orders_30d": 0.0,
+      "spend_30d": 0.0,
+      "unique_products": 35.0,
+      "average_order_value": 534.57
+    },
+    "probability": 0.11958203360576988
+  },
+  {
+    "profile": {
+      "recency_days": 56.0,
+      "orders": 2.0,
+      "gross_spend": 1237.53,
+      "tenure_days": 241.0,
+      "orders_30d": 0.0,
+      "spend_30d": 0.0,
+      "unique_products": 56.0,
+      "average_order_value": 618.765
+    },
+    "probability": 0.2581349892959014
+  },
+  {
+    "profile": {
+      "recency_days": 34.0,
+      "orders": 6.0,
+      "gross_spend": 1785.65,
+      "tenure_days": 333.0,
+      "orders_30d": 0.0,
+      "spend_30d": 0.0,
+      "unique_products": 32.0,
+      "average_order_value": 297.60833333333335
+    },
+    "probability": 0.5108883754236686
+  },
+  {
+    "profile": {
+      "recency_days": 71.0,
+      "orders": 2.0,
+      "gross_spend": 261.79,
+      "tenure_days": 243.0,
+      "orders_30d": 0.0,
+      "spend_30d": 0.0,
+      "unique_products": 42.0,
+      "average_order_value": 130.895
+    },
+    "probability": 0.18765875351946099
+  },
+  {
+    "profile": {
+      "recency_days": 124.0,
+      "orders": 1.0,
+      "gross_spend": 110.92,
+      "tenure_days": 124.0,
+      "orders_30d": 0.0,
+      "spend_30d": 0.0,
+      "unique_products": 24.0,
+      "average_order_value": 110.92
+    },
+    "probability": 0.12459859815402906
+  },
+  {
+    "profile": {
+      "recency_days": 225.0,
+      "orders": 1.0,
+      "gross_spend": 320.62,
+      "tenure_days": 225.0,
+      "orders_30d": 0.0,
+      "spend_30d": 0.0,
+      "unique_products": 12.0,
+      "average_order_value": 320.62
+    },
+    "probability": 0.16200159507663653
+  },
+  {
+    "profile": {
+      "recency_days": 206.0,
+      "orders": 1.0,
+      "gross_spend": 129.45,
+      "tenure_days": 206.0,
+      "orders_30d": 0.0,
+      "spend_30d": 0.0,
+      "unique_products": 5.0,
+      "average_order_value": 129.45
+    },
+    "probability": 0.1041183049090509
+  },
+  {
+    "profile": {
+      "recency_days": 245.0,
+      "orders": 1.0,
+      "gross_spend": 158.68,
+      "tenure_days": 245.0,
+      "orders_30d": 0.0,
+      "spend_30d": 0.0,
+      "unique_products": 10.0,
+      "average_order_value": 158.68
+    },
+    "probability": 0.08657429763297811
+  },
+  {
+    "profile": {
+      "recency_days": 88.0,
+      "orders": 6.0,
+      "gross_spend": 3276.4,
+      "tenure_days": 175.0,
+      "orders_30d": 0.0,
+      "spend_30d": 0.0,
+      "unique_products": 4.0,
+      "average_order_value": 546.0666666666667
+    },
+    "probability": 0.40552809168922155
+  },
+  {
+    "profile": {
+      "recency_days": 3.0,
+      "orders": 3.0,
+      "gross_spend": 1837.28,
+      "tenure_days": 162.0,
+      "orders_30d": 2.0,
+      "spend_30d": 1072.0,
+      "unique_products": 59.0,
+      "average_order_value": 612.4266666666666
+    },
+    "probability": 0.2529940703165179
+  }
+]

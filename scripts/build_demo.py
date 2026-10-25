@@ -17,15 +17,14 @@ font=choose_font(22)
 small=choose_font(16)
 titlefont=choose_font(31,serif=True)
 scenes=[
- ('overview.jpg',8,'01 / Growth overview','Audit the full dataset. Keep gross sales, returns and net sales visible.',0,.35),
- ('sweden.jpg',7,'02 / Market context','Sweden: 8 identified shoppers and 34 orders. A small export sample, not a market estimate.',0,.35),
- ('shoppers.jpg',9,'03 / Shopper intelligence','Turn RFM segments, retention and basket associations into hypotheses to test.',.12,.55),
- ('campaign.jpg',9,'04 / Contribution economics','Default assumptions: GBP 255 modelled contribution. Audience is too small for the test.',.18,.65),
- ('campaign-stress.jpg',7,'05 / Stress-test the offer','Raise the discount from 5% to 20%: modelled contribution becomes GBP -825.',.25,.75),
- ('live-frame-1.jpg',3,'06 / Real HTTP ingestion','SQLite-backed event ingestion; explicit synthetic flags; two-second polling.',0,0),
- ('live-frame-2.jpg',2,'06 / Event received','A new demonstration order is accepted and the monitor updates.',0,0),
- ('live-frame-3.jpg',2,'06 / Events persist','Event IDs deduplicate orders. Demo totals stay separate from historical analysis.',0,0),
- ('evidence.jpg',9,'07 / Evidence before claims','Review temporal ranking diagnostics, method boundaries and source references.',.08,1),
+ ('v2/overview.jpg',6,'01 / Marketing decision workspace','Connect shopper evidence to a commercial hypothesis and a controlled test.',0,.30),
+ ('v2/prediction.jpg',8,'02 / Supervised repurchase model','November top-20% precision: 67.8% forest vs 63.4% RFM. Historical, not causal.',0,.28),
+ ('v2/profile-changed.jpg',5,'03 / Actual fitted-model inference','Changing a coherent behavior profile recalculates the probability and model-path drivers.',0,.10),
+ ('v2/recommendations.jpg',8,'04 / Learned product factors','SVD hit-rate@5: 27.9% vs 14.4% popularity among eligible novel-product shoppers.',0,.60),
+ ('v2/experiment.jpg',8,'05 / Read the contribution outcome','Synthetic example: conversion improves, but the contribution interval crosses zero.',0,.60),
+ ('v2/assistant.jpg',8,'06 / Source-backed evidence retrieval','Fitted TF-IDF retrieval returns existing passages and sources; it is not a generative LLM.',0,.50),
+ ('v2/campaign.jpg',6,'07 / Commercial assumptions made explicit','Include discounts on baseline purchases, break-even conversion and test sample size.',.10,.60),
+ ('v2/evidence.jpg',6,'08 / Auditable evidence and limits','50 Python checks plus browser-engine reference tests. No invented campaign results.',.10,.90),
 ]
 total=sum(s[1] for s in scenes)
 writer=imageio.get_writer(assets/'brandscope-demo.mp4',fps=FPS,codec='libx264',quality=8,
@@ -68,9 +67,9 @@ gif_frames[0].save(assets/'brandscope-preview.gif',save_all=True,append_images=g
 (assets/'brandscope-demo.srt').write_text('\n'.join(srt),encoding='utf-8')
 (ROOT/'docs/DEMO.md').write_text('''# Demo walkthrough
 
-The 56-second MP4 is a captioned walkthrough assembled from genuine browser screenshots captured while exercising the running Python application. It uses slow vertical pans through full-page captures and successive live-monitor states. It has no audio and is not a continuous desktop recording. No UI or analytical results are fabricated.
+The 55-second MP4 is a captioned walkthrough assembled from genuine browser screenshots captured while exercising the running Python application. It uses slow vertical pans through full-page captures and successive live-monitor states. It has no audio and is not a continuous desktop recording. No UI or analytical results are fabricated.
 
-The event screenshots show successful real HTTP requests to the local SQLite-backed API; their purchase amounts are explicitly synthetic. The GitHub Pages preview uses browser storage instead, as labelled in that preview. Scenario outputs are assumptions, not measured profit.
+The upgraded screenshots show fitted model inference, product recommendations, source retrieval and an explicitly synthetic experiment. The local API and public browser engine share the same model contracts. Observational metrics and commercial scenarios are not measured campaign impact.
 
 | Time | Screen | Explanation |
 | --- | --- | --- |

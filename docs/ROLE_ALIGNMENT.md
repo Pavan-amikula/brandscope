@@ -15,3 +15,8 @@ The source role is Brand Management Summer Internship 2027, Stockholm General Of
 | Internship availability | Proposed 10-week work plan | Actual availability, relocation and work authorization must be confirmed by the applicant |
 
 Use this project to support an application, not replace evidence of the role's mandatory personal qualifications.
+
+
+## AI/ML extension
+
+The second version adds measured purchase prediction, product-factor recommendations, evidence retrieval and experiment-result interpretation. These strengthen analytical evidence and decision communication. They do not establish consumer motivations, real campaign impact, Swedish language proficiency or actual cross-functional leadership. Primary company material and public portfolio examples informing this scope are documented in UPGRADE_RESEARCH.md.

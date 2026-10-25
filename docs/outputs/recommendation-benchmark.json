@@ -1,0 +1,82 @@
+{
+  "validation_cutoff": "2011-09-01",
+  "test_cutoff": "2011-11-01",
+  "horizon_days": 30,
+  "selected": "svd",
+  "selected_rank": 32,
+  "selection_rule": "Choose method/rank by September mean recall@5, hit-rate tie-break; refit history before November and evaluate once.",
+  "validation": [
+    {
+      "method": "svd",
+      "eligible": 887,
+      "hit_rate_at5": 0.30214205186020293,
+      "recall_at5": 0.03008115660204883,
+      "precision_at5": 0.08635851183765501,
+      "mrr_at5": 0.17820368282600527,
+      "catalog_coverage": 0.508,
+      "target_catalog_coverage": 0.34178414219646736,
+      "candidate_items": 500,
+      "target_policy": "All future novel products, including items outside the training top-500 catalog; known customers with at least one novel purchase only.",
+      "rank": 16
+    },
+    {
+      "method": "svd",
+      "eligible": 887,
+      "hit_rate_at5": 0.29537767756482525,
+      "recall_at5": 0.031535638752834175,
+      "precision_at5": 0.08635851183765501,
+      "mrr_at5": 0.1754039834648628,
+      "catalog_coverage": 0.694,
+      "target_catalog_coverage": 0.34178414219646736,
+      "candidate_items": 500,
+      "target_policy": "All future novel products, including items outside the training top-500 catalog; known customers with at least one novel purchase only.",
+      "rank": 32
+    },
+    {
+      "method": "popularity",
+      "eligible": 887,
+      "hit_rate_at5": 0.1589627959413754,
+      "recall_at5": 0.010980115826494441,
+      "precision_at5": 0.03675310033821871,
+      "mrr_at5": 0.07662532882375048,
+      "catalog_coverage": 0.074,
+      "target_catalog_coverage": 0.34178414219646736,
+      "candidate_items": 500,
+      "target_policy": "All future novel products, including items outside the training top-500 catalog; known customers with at least one novel purchase only.",
+      "rank": null
+    }
+  ],
+  "test": [
+    {
+      "method": "svd",
+      "eligible": 1247,
+      "hit_rate_at5": 0.27906976744186046,
+      "recall_at5": 0.03202865738047197,
+      "precision_at5": 0.07698476343223737,
+      "mrr_at5": 0.1509355787222668,
+      "catalog_coverage": 0.722,
+      "target_catalog_coverage": 0.36735076024267843,
+      "candidate_items": 500,
+      "target_policy": "All future novel products, including items outside the training top-500 catalog; known customers with at least one novel purchase only."
+    },
+    {
+      "method": "popularity",
+      "eligible": 1247,
+      "hit_rate_at5": 0.14434643143544507,
+      "recall_at5": 0.010576659387177502,
+      "precision_at5": 0.034643143544506816,
+      "mrr_at5": 0.07993851911253676,
+      "catalog_coverage": 0.086,
+      "target_catalog_coverage": 0.36735076024267843,
+      "candidate_items": 500,
+      "target_policy": "All future novel products, including items outside the training top-500 catalog; known customers with at least one novel purchase only."
+    }
+  ],
+  "caveats": [
+    "Only known shoppers who buy a new product in the outcome month are eligible; not all shoppers.",
+    "Top-500 candidate catalog is fitted from pre-cutoff history. Out-of-catalog future targets count as misses.",
+    "Recommendations are co-purchase predictions, not causal sales lift or guaranteed relevance.",
+    "Browser basket scoring uses supplied seeds; evaluation uses each shopper's full weighted history, a different input context.",
+    "Item scores are ranking scores, not purchase probabilities; December seasonal generalization is untested."
+  ]
+}

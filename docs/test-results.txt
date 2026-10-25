@@ -1,3 +1,28 @@
+test_duplicate_participant_rejected (test_ml.ExperimentAnalysis.test_duplicate_participant_rejected) ... ok
+test_independent_difference_and_interval (test_ml.ExperimentAnalysis.test_independent_difference_and_interval) ... ok
+test_missing_columns_rejected (test_ml.ExperimentAnalysis.test_missing_columns_rejected) ... ok
+test_nonfinite_contribution_rejected (test_ml.ExperimentAnalysis.test_nonfinite_contribution_rejected) ... ok
+test_quoted_participant_id_supported (test_ml.ExperimentAnalysis.test_quoted_participant_id_supported) ... ok
+test_sample_ratio_imbalance_flagged (test_ml.ExperimentAnalysis.test_sample_ratio_imbalance_flagged) ... ok
+test_small_arms_rejected (test_ml.ExperimentAnalysis.test_small_arms_rejected) ... ok
+test_synthetic_example_keeps_inconclusive_profit_visible (test_ml.ExperimentAnalysis.test_synthetic_example_keeps_inconclusive_profit_visible) ... ok
+test_cold_start_profile_requires_a_separate_model (test_ml.PortableModels.test_cold_start_profile_requires_a_separate_model) ... ok
+test_common_questions_return_relevant_project_evidence (test_ml.PortableModels.test_common_questions_return_relevant_project_evidence) ... ok
+test_export_matches_sklearn_reference_cases (test_ml.PortableModels.test_export_matches_sklearn_reference_cases) ... ok
+test_extrapolation_is_flagged (test_ml.PortableModels.test_extrapolation_is_flagged) ... ok
+test_final_month_never_used_for_model_selection (test_ml.PortableModels.test_final_month_never_used_for_model_selection) ... ok
+test_forest_path_contributions_reconcile (test_ml.PortableModels.test_forest_path_contributions_reconcile) ... ok
+test_fractional_purchase_count_rejected (test_ml.PortableModels.test_fractional_purchase_count_rejected) ... ok
+test_inconsistent_purchase_history_rejected (test_ml.PortableModels.test_inconsistent_purchase_history_rejected) ... ok
+test_inconsistent_recency_or_spend_rejected (test_ml.PortableModels.test_inconsistent_recency_or_spend_rejected) ... ok
+test_missing_profile_feature_is_rejected (test_ml.PortableModels.test_missing_profile_feature_is_rejected) ... ok
+test_nonfinite_or_negative_feature_rejected (test_ml.PortableModels.test_nonfinite_or_negative_feature_rejected) ... ok
+test_popularity_baseline_uses_purchase_invoice_counts (test_ml.PortableModels.test_popularity_baseline_uses_purchase_invoice_counts) ... ok
+test_recommendation_excludes_seeds (test_ml.PortableModels.test_recommendation_excludes_seeds) ... ok
+test_repeated_seed_is_not_double_counted (test_ml.PortableModels.test_repeated_seed_is_not_double_counted) ... ok
+test_swedish_question_retrieves_sample_boundary (test_ml.PortableModels.test_swedish_question_retrieves_sample_boundary) ... ok
+test_unknown_evidence_question_abstains (test_ml.PortableModels.test_unknown_evidence_question_abstains) ... ok
+test_unknown_product_rejected (test_ml.PortableModels.test_unknown_product_rejected) ... ok
 test_break_even_solves_profit_zero (test_project.CommercialMath.test_break_even_solves_profit_zero) ... ok
 test_invalid_inputs (test_project.CommercialMath.test_invalid_inputs) ... ok
 test_matches_independent_treatment_control_ledger (test_project.CommercialMath.test_matches_independent_treatment_control_ledger) ... ok
@@ -9,23 +34,35 @@ test_every_filter_financial_reconciliation (test_project.DatasetAudit.test_every
 test_holdout_probability_bounds_and_rank_sizes (test_project.DatasetAudit.test_holdout_probability_bounds_and_rank_sizes) ... ok
 test_row_reconciliation (test_project.DatasetAudit.test_row_reconciliation) ... ok
 test_sweden_is_small_observed_sample (test_project.DatasetAudit.test_sweden_is_small_observed_sample) ... ok
-test_bad_event_rejected (test_project.LiveAPI.test_bad_event_rejected) ... 127.0.0.1 - - [25/Oct/2026 18:44:32] "POST /api/events HTTP/1.1" 400 -
+test_bad_event_rejected (test_project.LiveAPI.test_bad_event_rejected) ... 127.0.0.1 - - [25/Oct/2026 19:39:16] "POST /api/events HTTP/1.1" 400 -
 ok
-test_campaign_api (test_project.LiveAPI.test_campaign_api) ... 127.0.0.1 - - [25/Oct/2026 18:44:32] "POST /api/campaign HTTP/1.1" 200 -
+test_campaign_api (test_project.LiveAPI.test_campaign_api) ... 127.0.0.1 - - [25/Oct/2026 19:39:16] "POST /api/campaign HTTP/1.1" 200 -
 ok
-test_cross_origin_write_rejected (test_project.LiveAPI.test_cross_origin_write_rejected) ... 127.0.0.1 - - [25/Oct/2026 18:44:32] "POST /api/plans HTTP/1.1" 403 -
+test_cross_origin_write_rejected (test_project.LiveAPI.test_cross_origin_write_rejected) ... 127.0.0.1 - - [25/Oct/2026 19:39:16] "POST /api/plans HTTP/1.1" 403 -
 ok
-test_health (test_project.LiveAPI.test_health) ... 127.0.0.1 - - [25/Oct/2026 18:44:32] "GET /api/health HTTP/1.1" 200 -
+test_evidence_api (test_project.LiveAPI.test_evidence_api) ... 127.0.0.1 - - [25/Oct/2026 19:39:16] "POST /api/ask HTTP/1.1" 200 -
 ok
-test_idempotent_event_and_durable_storage (test_project.LiveAPI.test_idempotent_event_and_durable_storage) ... 127.0.0.1 - - [25/Oct/2026 18:44:32] "POST /api/events HTTP/1.1" 201 -
-127.0.0.1 - - [25/Oct/2026 18:44:32] "POST /api/events HTTP/1.1" 200 -
-127.0.0.1 - - [25/Oct/2026 18:44:32] "GET /api/events HTTP/1.1" 200 -
+test_experiment_api (test_project.LiveAPI.test_experiment_api) ... 127.0.0.1 - - [25/Oct/2026 19:39:16] "POST /api/experiment HTTP/1.1" 200 -
 ok
-test_saved_scenario (test_project.LiveAPI.test_saved_scenario) ... 127.0.0.1 - - [25/Oct/2026 18:44:32] "POST /api/plans HTTP/1.1" 201 -
-127.0.0.1 - - [25/Oct/2026 18:44:32] "GET /api/plans HTTP/1.1" 200 -
+test_health (test_project.LiveAPI.test_health) ... 127.0.0.1 - - [25/Oct/2026 19:39:16] "GET /api/health HTTP/1.1" 200 -
 ok
+test_idempotent_event_and_durable_storage (test_project.LiveAPI.test_idempotent_event_and_durable_storage) ... 127.0.0.1 - - [25/Oct/2026 19:39:16] "POST /api/events HTTP/1.1" 201 -
+127.0.0.1 - - [25/Oct/2026 19:39:16] "POST /api/events HTTP/1.1" 200 -
+127.0.0.1 - - [25/Oct/2026 19:39:16] "GET /api/events HTTP/1.1" 200 -
+ok
+test_profile_prediction_api (test_project.LiveAPI.test_profile_prediction_api) ... 127.0.0.1 - - [25/Oct/2026 19:39:16] "POST /api/predict HTTP/1.1" 200 -
+ok
+test_recommendation_api (test_project.LiveAPI.test_recommendation_api) ... 127.0.0.1 - - [25/Oct/2026 19:39:16] "POST /api/recommend HTTP/1.1" 200 -
+ok
+test_saved_scenario (test_project.LiveAPI.test_saved_scenario) ... 127.0.0.1 - - [25/Oct/2026 19:39:16] "POST /api/plans HTTP/1.1" 201 -
+127.0.0.1 - - [25/Oct/2026 19:39:16] "GET /api/plans HTTP/1.1" 200 -
+ok
+test_future_customer_is_not_eligible_before_first_purchase (test_training.SnapshotContracts.test_future_customer_is_not_eligible_before_first_purchase) ... ok
+test_future_transactions_cannot_change_features (test_training.SnapshotContracts.test_future_transactions_cannot_change_features) ... ok
+test_incomplete_label_window_rejected (test_training.SnapshotContracts.test_incomplete_label_window_rejected) ... ok
+test_label_window_is_subsequent_30_days (test_training.SnapshotContracts.test_label_window_is_subsequent_30_days) ... ok
 
 ----------------------------------------------------------------------
-Ran 17 tests in 0.604s
+Ran 50 tests in 3.153s
 
 OK

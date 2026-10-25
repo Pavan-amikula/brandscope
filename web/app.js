@@ -47,6 +47,22 @@ const state = {
   },
 };
 const titles = {
+  prediction: [
+    "Predict. Benchmark. Question the model.",
+    "Out-of-time repurchase prediction, with uncertainty and simple baselines.",
+  ],
+  recommendations: [
+    "Make product discovery more relevant.",
+    "Learned product factors, compared with a popularity baseline.",
+  ],
+  experiment: [
+    "Measure the result that matters.",
+    "Read randomized test outcomes through contribution, uncertainty and assignment quality.",
+  ],
+  assistant: [
+    "Ask a question. Trace the evidence.",
+    "Search the project's fitted evidence index and inspect the supporting sources.",
+  ],
   overview: [
     "Find the next growth opportunity.",
     "From retail signals to a sharper marketing decision.",
@@ -69,6 +85,10 @@ const titles = {
   ],
 };
 const labels = {
+  prediction: "Predictive ML lab",
+  recommendations: "Product discovery",
+  experiment: "Experiment lab",
+  assistant: "Evidence assistant",
   overview: "Growth overview",
   shoppers: "Shopper intelligence",
   campaign: "Campaign studio",
@@ -396,12 +416,32 @@ function navigate(view) {
   $("#crumb").textContent = labels[view];
   $("#page-title").textContent = titles[view][0];
   $("#page-subtitle").textContent = titles[view][1];
-  $("#content").innerHTML = { overview, shoppers, campaign, live, evidence }[
-    view
-  ]();
+  $(".filterbar").hidden = [
+    "prediction",
+    "recommendations",
+    "experiment",
+    "assistant",
+  ].includes(view);
+  $("#content").innerHTML = {
+    overview,
+    shoppers,
+    campaign,
+    live,
+    evidence,
+    prediction: predictionStudio,
+    recommendations: recommendationStudio,
+    experiment: experimentStudio,
+    assistant: assistantStudio,
+  }[view]();
   bindView();
 }
 function bindView() {
+  if (
+    ["prediction", "recommendations", "experiment", "assistant"].includes(
+      state.view,
+    )
+  )
+    bindIntelligenceView(state.view);
   document.querySelectorAll("[data-go]").forEach(
     (b) =>
       (b.onclick = () => {

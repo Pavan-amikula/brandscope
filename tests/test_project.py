@@ -131,5 +131,25 @@ class LiveAPI(unittest.TestCase):
         self.assertEqual(self.request('/api/plans',{'title':'Test brief','assumptions':True})[0],201)
         self.assertEqual(self.request('/api/plans')[1][0]['title'],'Test brief')
 
+    def test_profile_prediction_api(self):
+        model=json.loads((ROOT/'web/models/propensity.json').read_text())
+        status,result=self.request('/api/predict',model['example'])
+        self.assertEqual(status,200);self.assertGreaterEqual(result['probability'],0);self.assertLessEqual(result['probability'],1)
+
+    def test_recommendation_api(self):
+        model=json.loads((ROOT/'web/models/recommender.json').read_text())
+        code=model['items'][0]['code'];status,result=self.request('/api/recommend',{'codes':[code]})
+        self.assertEqual(status,200);self.assertEqual(len(result),5);self.assertNotIn(code,[p['code'] for p in result])
+
+    def test_evidence_api(self):
+        status,result=self.request('/api/ask',{'question':'How large is the Swedish sample?'})
+        self.assertEqual(status,200);self.assertFalse(result['abstained'])
+
+    def test_experiment_api(self):
+        from experiments import parse_experiment_csv
+        rows=parse_experiment_csv((ROOT/'web/models/synthetic-experiment.csv').read_text())
+        status,result=self.request('/api/experiment',{'rows':rows})
+        self.assertEqual(status,200);self.assertEqual(result['n'],8000);self.assertIn('Inconclusive',result['decision'])
+
 
 if __name__=='__main__':unittest.main()

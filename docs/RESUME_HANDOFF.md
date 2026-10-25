@@ -1,3 +1,47 @@
+# BrandScope 2 — current AI/ML upgrade for the resume
+
+This section supersedes the earlier version's feature and test counts. The rest of this document retains the complete business context and original descriptive analytics. Tailor the resume to P&G Brand Management; do not imply that more algorithms alone establish suitability or a hiring guarantee.
+
+## New implemented capabilities
+
+- **Supervised purchase propensity:** compared logistic regression and random forest using eight past-only behavioral features. Trained on six March–August 2011 snapshots (15,063 customer-date rows); September selects the candidate, October fits sigmoid calibration, November is the final 30-day report. No final-month tuning.
+- **Explainable portable inference:** exported forest parameters and calibrator to JSON; Python and browser JavaScript execute the same model. Includes tree-path contributions, permutation importance, reliability bins, extrapolation warnings, feature-drift diagnostics and historical capacity planning. No SHAP or causal interpretation is claimed.
+- **Product recommendation:** fitted 32-factor TruncatedSVD to a sparse purchase matrix, selected against rank-16 and popularity alternatives on September recall@5, then evaluated on November novel-product outcomes.
+- **Evidence retrieval NLP:** fitted an English TF-IDF index over 80 factual/method passages, returning existing text with source links and abstaining for unsupported queries. This is not a generative LLM or foundation-model RAG implementation.
+- **Experiment-results analyser:** accepts uploaded/pasted participant CSVs, rejects duplicates, computes contribution and conversion differences with approximate 95% intervals, and flags 50:50 sample-ratio mismatches. The example is explicitly synthetic; no real campaign was run.
+- **Verification:** 50 Python tests plus executable Node checks compare browser inference with sklearn reference cases and validate recommendation, retrieval and experiment outputs. CI installs optional model-rebuild libraries and checks feature-time boundaries.
+
+## Verified new results
+
+On the same November holdout of **3,970 shoppers**, the selected forest has **average precision 0.6367**, **ROC-AUC 0.7356**, and **67.76% precision in the top 20%**, compared with **RFM AP 0.6036 / top-20% precision 63.35%** and **spend-only AP 0.5770**. Paired customer bootstrap AP difference vs RFM is **0.0331**, percentile interval **[0.0221, 0.0440]**, 500 replicates. This conditions on one fixed model and one historical month; it is not causal lift or a future-performance guarantee.
+
+Keep mixed results explicit: logistic regression slightly exceeds the selected forest on final-month AP and Brier. October calibration worsens November Brier from **0.1860 to 0.1870**. Do not claim consistently superior probability calibration or production accuracy.
+
+Recommendation **hit-rate@5 is 27.91% vs 14.43% popularity**, **mean recall@5 3.20% vs 1.06%**, and catalog coverage **72.2% vs 8.6%**. Evaluation covers **1,247 known shoppers with a novel future purchase**, not all shoppers. Only 36.74% of future novel targets are inside the top-500 candidate catalog. The browser uses one/two seed products, whereas offline evaluation uses full weighted histories; do not equate those contexts or call these metrics sales uplift.
+
+The 8,000-participant synthetic experiment has a positive secondary conversion difference of **2.75 pp**, but its primary contribution difference of **£0.229 per participant** has an approximate interval **[−£0.006, £0.464]**. The tool correctly reports inconclusive contribution rather than declaring a campaign win. Synthetic results are demonstration outputs, not personal business achievements.
+
+## Updated resume bullet options
+
+Choose 2–3, prioritize business relevance, and use only claims the applicant can explain:
+
+1. Built a brand growth workspace on **541,909 retail transaction rows**, connecting shopper segmentation, predictive purchase ranking, product discovery and campaign contribution analysis to testable marketing decisions.
+2. Benchmarked logistic regression and random forest with separate temporal selection, calibration and holdout periods; achieved **67.8% top-quintile repurchase precision versus 63.4% for RFM** across **3,970 November holdout shoppers**.
+3. Developed a **32-factor SVD recommendation model**, achieving **27.9% historical hit-rate@5 versus 14.4% for popularity** among eligible novel-product purchasers, with recall and catalog-coverage limitations documented.
+4. Implemented a source-linked **TF-IDF evidence assistant** and a CSV-based experiment analyser that evaluates contribution uncertainty and assignment imbalance, supported by **50 automated tests** and Python/browser inference parity checks.
+
+## Additional supported keywords
+
+Supervised machine learning; purchase propensity; random forest; logistic regression; temporal validation; probability calibration; model evaluation; average precision; explainable model inspection; permutation importance; bootstrap uncertainty; collaborative filtering; matrix factorization; TruncatedSVD; recommendation evaluation; NLP; TF-IDF; evidence retrieval; experiment analysis; sample-ratio mismatch; confidence intervals; commercial decision support; model governance; data quality; consumer-first analytics.
+
+These extend the marketing keywords below. Do not claim deep learning, generative AI, an LLM integration, causal uplift modeling, marketing mix modeling, randomized fieldwork, real P&G data or Swedish business proficiency. Public P&G LinkedIn posts and portfolio examples were reviewed for positioning; no one was messaged, no private account was accessed and no third-party code/metrics were copied.
+
+Model card: https://github.com/Pavan-amikula/brandscope/blob/main/docs/MODEL_CARD.md
+New results: https://github.com/Pavan-amikula/brandscope/blob/main/docs/outputs/ML_RESULTS.md
+Research: https://github.com/Pavan-amikula/brandscope/blob/main/docs/UPGRADE_RESEARCH.md
+
+---
+
 # BrandScope — complete project context for resume writing
 
 ## Instructions for the resume-writing conversation
@@ -22,7 +66,7 @@ BrandScope is a working brand management decision workspace that turns historica
 
 The project uses the full UCI Online Retail dataset, with 541,909 historical transaction rows from a UK gift retailer. A documented audit removes exact duplicates and scoped invalid/non-merchandise records while retaining negative merchandise transactions as recorded returns. Sales include records without customer IDs; customer-level analysis excludes those records. Currency calculations use integer pence before presentation in GBP. Sweden and Nordic filters show the actual relevant export orders without relabelling the dataset as Swedish FMCG data.
 
-The dashboard supports five working views. Growth overview shows reconciled sales and opportunities. Shopper intelligence provides explainable RFM segmentation, cohort retention, product search and basket associations. Campaign studio models incremental contribution, discounts paid on baseline purchases, break-even conversion gain and approximate conversion test sample size; it saves scenarios and exports a complete Markdown brief. Activation monitor accepts validated HTTP events, deduplicates event IDs, stores records in SQLite and updates through two-second polling. Evidence & methods shows source lineage, cleaning checks, historical ranking evaluation and research references.
+The original analytics workflow remains alongside four new intelligent workspaces. Growth overview shows reconciled sales and opportunities. Shopper intelligence provides explainable RFM segmentation, cohort retention, product search and basket associations. Campaign studio models incremental contribution, discounts paid on baseline purchases, break-even conversion gain and approximate conversion test sample size; it saves scenarios and exports a complete Markdown brief. Activation monitor accepts validated HTTP events, deduplicates event IDs, stores records in SQLite and updates through two-second polling. Evidence & methods shows source lineage, cleaning checks, historical ranking evaluation and research references.
 
 The app runs locally with Python's standard library and no API keys. The hosted GitHub Pages preview uses committed aggregate data and browser storage for demo events/scenarios; it does not host the Python API. It is explicit about that distinction. Demo events carry a synthetic flag and are isolated from historical analytics.
 
@@ -45,7 +89,7 @@ The app runs locally with Python's standard library and no API keys. The hosted 
 | Spend-only precision | 51.35%, 56.95%, 50.42% | An explicit alternative baseline |
 | High-value inactive shoppers | 96 | A hypothesis-generating group under stated thresholds |
 | Their historical gross purchases | About £428k | Past spend, not recoverable revenue or CLV |
-| Automated tests | 17 passing | Commercial math, data reconciliations and HTTP/SQLite integration |
+| Automated tests | 50 passing | Commercial math, data reconciliations and HTTP/SQLite integration |
 | Event update interval | 2 seconds | Near-real-time polling, not a WebSocket latency benchmark |
 
 The RFM ranking is the mean of percentile frequency, percentile gross monetary spend and inverse percentile recency. Features are computed only before each cutoff. The top 20% are then evaluated for repurchase within the following 30 days. No model was tuned, and no causal or statistical significance claim is made. The same customers can appear across checks, so these are not independent field experiments.
@@ -72,7 +116,7 @@ The 2,000-person planning audience is independent of the observed 96-person at-r
 
 ## Technology
 
-Python, pandas, SQLite, SQL, standard-library HTTP server, HTML, CSS, vanilla JavaScript, SVG charts, REST-style JSON endpoints, Git, GitHub Actions, GitHub Pages. openpyxl reads the original workbook. The app runtime and tests require no third-party packages; pandas/openpyxl are needed only for the data rebuild.
+Python, pandas, SQLite, SQL, standard-library HTTP server, HTML, CSS, vanilla JavaScript, SVG charts, REST-style JSON endpoints, Git, GitHub Actions, GitHub Pages. openpyxl reads the original workbook. The application runtime executes committed model contracts without third-party packages. Model rebuilding and the full feature-construction tests use pandas, numpy, scipy and scikit-learn; openpyxl reads the source workbook.
 
 Do not add React, Power BI, Tableau, FastAPI, WebSockets, cloud databases, causal ML, marketing mix modeling or production authentication as implemented technologies. The Microsoft Power BI example was a design reference only.
 
@@ -93,7 +137,7 @@ Choose two or three, then adapt to the applicant's own understanding and verifie
 1. Built a brand growth decision workspace analyzing **541,909 retail transaction rows** across **19,771 purchase orders and 4,334 identified shoppers**, translating RFM segments, retention cohorts and basket evidence into testable marketing hypotheses.
 2. Evaluated past-only RFM ranking across **three 30-day historical holdouts**, identifying repeat purchasers at **1.89–2.35× the overall repurchase rate** while comparing against a spend-only baseline.
 3. Developed a campaign contribution planner incorporating baseline discount cannibalization, break-even conversion and sample-size checks, with exportable decision briefs and explicit scale/stop criteria.
-4. Implemented a **SQLite-backed event ingestion API** with schema validation, idempotent order IDs and **two-second dashboard polling**, supported by **17 automated checks** and GitHub Actions.
+4. Implemented a **SQLite-backed event ingestion API** with schema validation, idempotent order IDs and **two-second dashboard polling**, supported by **50 automated checks** and GitHub Actions.
 
 For a marketing application, lead with bullets 1 and 3. Keep technical details secondary unless the role rewards them. Do not say “increased retention by 135%,” “generated £9.75m revenue,” “delivered £255 profit,” or “optimized P&G's campaign”; none was measured.
 

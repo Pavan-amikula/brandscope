@@ -1,0 +1,325 @@
+{
+  "version": "repurchase-1.0",
+  "source_sha256": "f5385cbb54bbebf7196389109c6b0621faab0c304e3702548165e71c84aede8b",
+  "split": {
+    "train": [
+      "2011-03-01",
+      "2011-04-01",
+      "2011-05-01",
+      "2011-06-01",
+      "2011-07-01",
+      "2011-08-01"
+    ],
+    "train_rows": 15063,
+    "validation": "2011-09-01",
+    "calibration": "2011-10-01",
+    "test": "2011-11-01",
+    "test_end_exclusive": "2011-12-01",
+    "horizon_days": 30
+  },
+  "selected": "Random forest",
+  "selection_rule": "Highest September average precision; Brier tie-break. October sigmoid calibration fixed before November reporting.",
+  "validation": [
+    {
+      "model": "Logistic regression",
+      "n": 3314,
+      "positives": 960,
+      "prevalence": 0.28968014484007243,
+      "average_precision": 0.5947815785794183,
+      "roc_auc": 0.7405227803738317,
+      "top20_n": 662,
+      "precision_top20": 0.620845921450151,
+      "lift_top20": 2.143211858006042,
+      "capture_top20": 0.428125,
+      "brier": 0.16885621603046494,
+      "log_loss": 0.5148831613600455
+    },
+    {
+      "model": "Random forest",
+      "n": 3314,
+      "positives": 960,
+      "prevalence": 0.28968014484007243,
+      "average_precision": 0.5964406643774024,
+      "roc_auc": 0.7387310606060605,
+      "top20_n": 662,
+      "precision_top20": 0.6163141993957704,
+      "lift_top20": 2.1275679758308157,
+      "capture_top20": 0.425,
+      "brier": 0.16903886293800527,
+      "log_loss": 0.516636744446416
+    }
+  ],
+  "test": [
+    {
+      "model": "Logistic regression (raw)",
+      "n": 3970,
+      "positives": 1337,
+      "prevalence": 0.3367758186397985,
+      "average_precision": 0.6371523528698022,
+      "roc_auc": 0.7366924777598407,
+      "top20_n": 794,
+      "precision_top20": 0.6775818639798489,
+      "lift_top20": 2.011967090501122,
+      "capture_top20": 0.4023934181002244,
+      "brier": 0.1835449264431157,
+      "log_loss": 0.5501554260918295
+    },
+    {
+      "model": "Random forest (raw)",
+      "n": 3970,
+      "positives": 1337,
+      "prevalence": 0.3367758186397985,
+      "average_precision": 0.6367099154627839,
+      "roc_auc": 0.7355945665182237,
+      "top20_n": 794,
+      "precision_top20": 0.6775818639798489,
+      "lift_top20": 2.011967090501122,
+      "capture_top20": 0.4023934181002244,
+      "brier": 0.18603955542945447,
+      "log_loss": 0.5595916874715904
+    },
+    {
+      "model": "Random forest + October calibration",
+      "n": 3970,
+      "positives": 1337,
+      "prevalence": 0.3367758186397985,
+      "average_precision": 0.6367099154627839,
+      "roc_auc": 0.7355945665182237,
+      "top20_n": 794,
+      "precision_top20": 0.6775818639798489,
+      "lift_top20": 2.011967090501122,
+      "capture_top20": 0.4023934181002244,
+      "brier": 0.1870155356369407,
+      "log_loss": 0.558513726976074
+    },
+    {
+      "model": "RFM rank",
+      "n": 3970,
+      "positives": 1337,
+      "prevalence": 0.3367758186397985,
+      "average_precision": 0.6036390790892896,
+      "roc_auc": 0.730457677012977,
+      "top20_n": 794,
+      "precision_top20": 0.6335012594458438,
+      "lift_top20": 1.8810770381451007,
+      "capture_top20": 0.37621540762902017
+    },
+    {
+      "model": "Spend-only rank",
+      "n": 3970,
+      "positives": 1337,
+      "prevalence": 0.3367758186397985,
+      "average_precision": 0.577045421716055,
+      "roc_auc": 0.7065629810463308,
+      "top20_n": 794,
+      "precision_top20": 0.6196473551637279,
+      "lift_top20": 1.8399401645474942,
+      "capture_top20": 0.3679880329094989
+    },
+    {
+      "model": "Training prevalence",
+      "n": 3970,
+      "positives": 1337,
+      "prevalence": 0.3367758186397985,
+      "average_precision": 0.3367758186397985,
+      "roc_auc": 0.5,
+      "top20_n": 794,
+      "precision_top20": 0.34886649874055414,
+      "lift_top20": 1.0359012715033658,
+      "capture_top20": 0.20718025430067316,
+      "brier": 0.22805046820892688,
+      "log_loss": 0.6502693535544992
+    }
+  ],
+  "reliability": [
+    {
+      "lower": 0.0,
+      "n": 305,
+      "predicted": 0.0915845073372723,
+      "observed": 0.18360655737704917
+    },
+    {
+      "lower": 0.1,
+      "n": 1484,
+      "predicted": 0.1534058566244338,
+      "observed": 0.17991913746630728
+    },
+    {
+      "lower": 0.2,
+      "n": 908,
+      "predicted": 0.2442753172736803,
+      "observed": 0.29955947136563876
+    },
+    {
+      "lower": 0.3,
+      "n": 462,
+      "predicted": 0.34670317203114936,
+      "observed": 0.4199134199134199
+    },
+    {
+      "lower": 0.4,
+      "n": 354,
+      "predicted": 0.4420707863224898,
+      "observed": 0.5536723163841808
+    },
+    {
+      "lower": 0.5,
+      "n": 167,
+      "predicted": 0.5398216580468563,
+      "observed": 0.6047904191616766
+    },
+    {
+      "lower": 0.6,
+      "n": 137,
+      "predicted": 0.6499609469126396,
+      "observed": 0.7883211678832117
+    },
+    {
+      "lower": 0.7,
+      "n": 73,
+      "predicted": 0.7488325653274829,
+      "observed": 0.8904109589041096
+    },
+    {
+      "lower": 0.8,
+      "n": 51,
+      "predicted": 0.8470970966767769,
+      "observed": 0.9803921568627451
+    },
+    {
+      "lower": 0.9,
+      "n": 29,
+      "predicted": 0.9223222969218765,
+      "observed": 0.9655172413793104
+    }
+  ],
+  "paired_bootstrap": {
+    "metric": "Average precision difference vs RFM",
+    "replicates": 500,
+    "seed": 42,
+    "estimate": 0.03307083637349428,
+    "lower": 0.022122526251158726,
+    "upper": 0.04403808229138878
+  },
+  "importance": [
+    {
+      "feature": "orders",
+      "average_precision_drop": 0.21718008319330062
+    },
+    {
+      "feature": "gross_spend",
+      "average_precision_drop": 0.023703829287992195
+    },
+    {
+      "feature": "recency_days",
+      "average_precision_drop": 0.01414964242808614
+    },
+    {
+      "feature": "tenure_days",
+      "average_precision_drop": 0.012656599168494043
+    },
+    {
+      "feature": "unique_products",
+      "average_precision_drop": 0.0015458234032371676
+    },
+    {
+      "feature": "orders_30d",
+      "average_precision_drop": 0.0008961016188580029
+    },
+    {
+      "feature": "spend_30d",
+      "average_precision_drop": 0.0005673753380075475
+    },
+    {
+      "feature": "average_order_value",
+      "average_precision_drop": 0.00016976795273138112
+    }
+  ],
+  "drift": [
+    {
+      "feature": "recency_days",
+      "psi": 0.01724186657757827
+    },
+    {
+      "feature": "orders",
+      "psi": 0.0009612844505151155
+    },
+    {
+      "feature": "gross_spend",
+      "psi": 0.0009093366609021849
+    },
+    {
+      "feature": "tenure_days",
+      "psi": 0.043119681905723614
+    },
+    {
+      "feature": "orders_30d",
+      "psi": 0.0001407804267302086
+    },
+    {
+      "feature": "spend_30d",
+      "psi": 0.0009523179229264167
+    },
+    {
+      "feature": "unique_products",
+      "psi": 0.0031065561559530234
+    },
+    {
+      "feature": "average_order_value",
+      "psi": 0.0013764007769322742
+    }
+  ],
+  "capacity": [
+    {
+      "fraction": 0.05,
+      "n": 198,
+      "expected_purchasers": 155.2522468824992,
+      "observed_purchasers": 179,
+      "observed_precision": 0.9040404040404041
+    },
+    {
+      "fraction": 0.1,
+      "n": 397,
+      "expected_purchasers": 273.17578862866776,
+      "observed_purchasers": 319,
+      "observed_precision": 0.8035264483627204
+    },
+    {
+      "fraction": 0.2,
+      "n": 794,
+      "expected_purchasers": 453.4676509891991,
+      "observed_purchasers": 538,
+      "observed_precision": 0.6775818639798489
+    },
+    {
+      "fraction": 0.3,
+      "n": 1191,
+      "expected_purchasers": 595.1997044202469,
+      "observed_purchasers": 704,
+      "observed_precision": 0.5910999160369438
+    },
+    {
+      "fraction": 0.5,
+      "n": 1985,
+      "expected_purchasers": 801.1739952179618,
+      "observed_purchasers": 966,
+      "observed_precision": 0.4866498740554156
+    },
+    {
+      "fraction": 1,
+      "n": 3970,
+      "expected_purchasers": 1097.8684203205949,
+      "observed_purchasers": 1337,
+      "observed_precision": 0.3367758186397985
+    }
+  ],
+  "caveats": [
+    "One historical gift retailer; no treatment or offer-response labels.",
+    "Customers recur across temporal snapshots; this is not customer-disjoint validation.",
+    "November is a seasonal shift. Calibration may degrade after the October population.",
+    "Permutation drops describe association and can be unstable for correlated features.",
+    "Bootstrap interval is conditional on the fixed fitted model and one test month.",
+    "High purchase propensity does not imply high incremental response to marketing."
+  ],
+  "model_sha256": "872375fa067d6ab032f8ca952e74dc4d1a40e8b709febb96bd61d4872959a982"
+}

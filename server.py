@@ -15,9 +15,15 @@ import sqlite3
 from urllib.parse import urlparse
 
 from analytics import campaign
+from experiments import analyse_experiment
+from ml_runtime import predict_profile, recommend, retrieve
 
 ROOT=Path(__file__).resolve().parent
 DB=ROOT/'data/events.sqlite'
+
+
+def model_file(name):
+    return json.loads((ROOT/'web/models'/name).read_text(encoding='utf-8'))
 
 
 @contextmanager
@@ -90,9 +96,18 @@ class Handler(SimpleHTTPRequestHandler):
         if self.headers.get_content_type()!='application/json':return self.send_json(dict(error='JSON required'),415)
         try:
             length=int(self.headers.get('Content-Length','0'))
-            if not 0 < length <= 16384:raise ValueError('Body must be 1–16384 bytes')
-            obj=json.loads(self.rfile.read(length))
             path=urlparse(self.path).path
+            maximum=2000000 if path=='/api/experiment' else 16384
+            if not 0 < length <= maximum:raise ValueError(f'Body must be 1–{maximum} bytes')
+            obj=json.loads(self.rfile.read(length))
+            if path=='/api/predict':
+                return self.send_json(predict_profile(model_file('propensity.json'),obj))
+            if path=='/api/recommend':
+                return self.send_json(recommend(model_file('recommender.json'),obj.get('codes'),method=obj.get('method')))
+            if path=='/api/ask':
+                return self.send_json(retrieve(model_file('knowledge.json'),obj.get('question')))
+            if path=='/api/experiment':
+                return self.send_json(analyse_experiment(obj.get('rows')))
             if path=='/api/events':
                 obj=validate_event(obj)
                 with connect() as db:
@@ -110,7 +125,7 @@ class Handler(SimpleHTTPRequestHandler):
                         (datetime.now(timezone.utc).isoformat(),title,json.dumps(obj)))
                 return self.send_json(dict(id=cursor.lastrowid,saved=True),201)
             return self.send_json(dict(error='Not found'),404)
-        except (ValueError,TypeError,KeyError) as e:
+        except (ValueError,TypeError,KeyError,AttributeError) as e:
             return self.send_json(dict(error=str(e)),400)
 
 

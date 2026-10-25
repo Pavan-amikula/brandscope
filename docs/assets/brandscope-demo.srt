@@ -1,44 +1,39 @@
 1
-00:00:00,000 --> 00:00:08,000
-01 / Growth overview
-Audit the full dataset. Keep gross sales, returns and net sales visible.
+00:00:00,000 --> 00:00:06,000
+01 / Marketing decision workspace
+Connect shopper evidence to a commercial hypothesis and a controlled test.
 
 2
-00:00:08,000 --> 00:00:15,000
-02 / Market context
-Sweden: 8 identified shoppers and 34 orders. A small export sample, not a market estimate.
+00:00:06,000 --> 00:00:14,000
+02 / Supervised repurchase model
+November top-20% precision: 67.8% forest vs 63.4% RFM. Historical, not causal.
 
 3
-00:00:15,000 --> 00:00:24,000
-03 / Shopper intelligence
-Turn RFM segments, retention and basket associations into hypotheses to test.
+00:00:14,000 --> 00:00:19,000
+03 / Actual fitted-model inference
+Changing a coherent behavior profile recalculates the probability and model-path drivers.
 
 4
-00:00:24,000 --> 00:00:33,000
-04 / Contribution economics
-Default assumptions: GBP 255 modelled contribution. Audience is too small for the test.
+00:00:19,000 --> 00:00:27,000
+04 / Learned product factors
+SVD hit-rate@5: 27.9% vs 14.4% popularity among eligible novel-product shoppers.
 
 5
-00:00:33,000 --> 00:00:40,000
-05 / Stress-test the offer
-Raise the discount from 5% to 20%: modelled contribution becomes GBP -825.
+00:00:27,000 --> 00:00:35,000
+05 / Read the contribution outcome
+Synthetic example: conversion improves, but the contribution interval crosses zero.
 
 6
-00:00:40,000 --> 00:00:43,000
-06 / Real HTTP ingestion
-SQLite-backed event ingestion; explicit synthetic flags; two-second polling.
+00:00:35,000 --> 00:00:43,000
+06 / Source-backed evidence retrieval
+Fitted TF-IDF retrieval returns existing passages and sources; it is not a generative LLM.
 
 7
-00:00:43,000 --> 00:00:45,000
-06 / Event received
-A new demonstration order is accepted and the monitor updates.
+00:00:43,000 --> 00:00:49,000
+07 / Commercial assumptions made explicit
+Include discounts on baseline purchases, break-even conversion and test sample size.
 
 8
-00:00:45,000 --> 00:00:47,000
-06 / Events persist
-Event IDs deduplicate orders. Demo totals stay separate from historical analysis.
-
-9
-00:00:47,000 --> 00:00:56,000
-07 / Evidence before claims
-Review temporal ranking diagnostics, method boundaries and source references.
+00:00:49,000 --> 00:00:55,000
+08 / Auditable evidence and limits
+50 Python checks plus browser-engine reference tests. No invented campaign results.
