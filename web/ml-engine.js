@@ -53,6 +53,8 @@
       terms = x.map((v, i) => ((v - m.mean[i]) / m.scale[i]) * m.coef[i]);
       raw = sigmoid(m.intercept + terms.reduce((a, b) => a + b, 0));
     } else {
+      // Match sklearn's float32 tree inputs, including split-boundary cases.
+      for (let i = 0; i < x.length; i++) x[i] = Math.fround(x[i]);
       let sum = 0;
       for (const tree of m.trees) {
         let node = 0;

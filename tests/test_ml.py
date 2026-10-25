@@ -25,6 +25,13 @@ class PortableModels(unittest.TestCase):
     def test_export_matches_sklearn_reference_cases(self):
         for case in artifact('parity_cases.json'):
             self.assertAlmostEqual(predict_profile(self.model,case['profile'])['probability'],case['probability'],places=7)
+        # log(1+3) in float32 lies above this threshold, although its double
+        # representation lies below it. Tree inference must use float32.
+        edge=copy.deepcopy(self.model)
+        edge['model']={'kind':'forest','trees':[dict(left=[1,-1,-1],right=[2,-1,-1],
+            feature=[1,-2,-2],threshold=[math.log1p(3)+1e-9,-2,-2],probability=[.5,.1,.9])]}
+        edge['calibrator']={'coef':1,'intercept':0}
+        self.assertAlmostEqual(predict_profile(edge,edge['example'])['raw_probability'],.9)
 
     def test_forest_path_contributions_reconcile(self):
         result=predict_profile(self.model,self.model['example'])

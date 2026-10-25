@@ -9,6 +9,10 @@ const model = json('propensity.json');
 for (const c of json('parity_cases.json')) {
   assert.ok(Math.abs(engine.predict(model, c.profile).probability - c.probability) < 1e-7, 'Browser/sklearn probability mismatch');
 }
+const edge = structuredClone(model);
+edge.model = {kind:'forest',trees:[{left:[1,-1,-1],right:[2,-1,-1],feature:[1,-2,-2],threshold:[Math.log1p(3)+1e-9,-2,-2],probability:[.5,.1,.9]}]};
+edge.calibrator = {coef:1,intercept:0};
+assert.equal(engine.predict(edge,edge.example).raw_probability,.9,'Forest inputs must match sklearn float32 traversal');
 const rec = json('recommender.json');
 const codes = rec.items.slice(0, 2).map(p => p.code);
 const suggestions = engine.recommend(rec, codes);

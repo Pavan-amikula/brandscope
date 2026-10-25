@@ -4,6 +4,7 @@ No pickle deserialization, API keys, network requests or customer identifiers.
 The same JSON model contract is evaluated in the public browser.
 """
 import math
+import struct
 
 
 def sigmoid(value):
@@ -42,6 +43,9 @@ def predict_profile(artifact, profile):
         probability=sigmoid(model['intercept']+sum(terms))
         explanations=[dict(feature=n,contribution=v) for n,v in zip(names,terms)]
     else:
+        # sklearn forests convert features to float32 before traversing trees.
+        # Preserve that contract at split boundaries in portable inference too.
+        x=[struct.unpack('f',struct.pack('f',v))[0] for v in x]
         estimates=[]
         terms=[0.0]*len(names)
         for tree in model['trees']:

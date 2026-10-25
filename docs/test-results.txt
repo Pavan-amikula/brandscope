@@ -34,28 +34,28 @@ test_every_filter_financial_reconciliation (test_project.DatasetAudit.test_every
 test_holdout_probability_bounds_and_rank_sizes (test_project.DatasetAudit.test_holdout_probability_bounds_and_rank_sizes) ... ok
 test_row_reconciliation (test_project.DatasetAudit.test_row_reconciliation) ... ok
 test_sweden_is_small_observed_sample (test_project.DatasetAudit.test_sweden_is_small_observed_sample) ... ok
-test_bad_event_rejected (test_project.LiveAPI.test_bad_event_rejected) ... 127.0.0.1 - - [25/Oct/2026 19:39:16] "POST /api/events HTTP/1.1" 400 -
+test_bad_event_rejected (test_project.LiveAPI.test_bad_event_rejected) ... 127.0.0.1 - - [25/Oct/2026 19:44:02] "POST /api/events HTTP/1.1" 400 -
 ok
-test_campaign_api (test_project.LiveAPI.test_campaign_api) ... 127.0.0.1 - - [25/Oct/2026 19:39:16] "POST /api/campaign HTTP/1.1" 200 -
+test_campaign_api (test_project.LiveAPI.test_campaign_api) ... 127.0.0.1 - - [25/Oct/2026 19:44:02] "POST /api/campaign HTTP/1.1" 200 -
 ok
-test_cross_origin_write_rejected (test_project.LiveAPI.test_cross_origin_write_rejected) ... 127.0.0.1 - - [25/Oct/2026 19:39:16] "POST /api/plans HTTP/1.1" 403 -
+test_cross_origin_write_rejected (test_project.LiveAPI.test_cross_origin_write_rejected) ... 127.0.0.1 - - [25/Oct/2026 19:44:02] "POST /api/plans HTTP/1.1" 403 -
 ok
-test_evidence_api (test_project.LiveAPI.test_evidence_api) ... 127.0.0.1 - - [25/Oct/2026 19:39:16] "POST /api/ask HTTP/1.1" 200 -
+test_evidence_api (test_project.LiveAPI.test_evidence_api) ... 127.0.0.1 - - [25/Oct/2026 19:44:02] "POST /api/ask HTTP/1.1" 200 -
 ok
-test_experiment_api (test_project.LiveAPI.test_experiment_api) ... 127.0.0.1 - - [25/Oct/2026 19:39:16] "POST /api/experiment HTTP/1.1" 200 -
+test_experiment_api (test_project.LiveAPI.test_experiment_api) ... 127.0.0.1 - - [25/Oct/2026 19:44:02] "POST /api/experiment HTTP/1.1" 200 -
 ok
-test_health (test_project.LiveAPI.test_health) ... 127.0.0.1 - - [25/Oct/2026 19:39:16] "GET /api/health HTTP/1.1" 200 -
+test_health (test_project.LiveAPI.test_health) ... 127.0.0.1 - - [25/Oct/2026 19:44:02] "GET /api/health HTTP/1.1" 200 -
 ok
-test_idempotent_event_and_durable_storage (test_project.LiveAPI.test_idempotent_event_and_durable_storage) ... 127.0.0.1 - - [25/Oct/2026 19:39:16] "POST /api/events HTTP/1.1" 201 -
-127.0.0.1 - - [25/Oct/2026 19:39:16] "POST /api/events HTTP/1.1" 200 -
-127.0.0.1 - - [25/Oct/2026 19:39:16] "GET /api/events HTTP/1.1" 200 -
+test_idempotent_event_and_durable_storage (test_project.LiveAPI.test_idempotent_event_and_durable_storage) ... 127.0.0.1 - - [25/Oct/2026 19:44:02] "POST /api/events HTTP/1.1" 201 -
+127.0.0.1 - - [25/Oct/2026 19:44:02] "POST /api/events HTTP/1.1" 200 -
+127.0.0.1 - - [25/Oct/2026 19:44:02] "GET /api/events HTTP/1.1" 200 -
 ok
-test_profile_prediction_api (test_project.LiveAPI.test_profile_prediction_api) ... 127.0.0.1 - - [25/Oct/2026 19:39:16] "POST /api/predict HTTP/1.1" 200 -
+test_profile_prediction_api (test_project.LiveAPI.test_profile_prediction_api) ... 127.0.0.1 - - [25/Oct/2026 19:44:02] "POST /api/predict HTTP/1.1" 200 -
 ok
-test_recommendation_api (test_project.LiveAPI.test_recommendation_api) ... 127.0.0.1 - - [25/Oct/2026 19:39:16] "POST /api/recommend HTTP/1.1" 200 -
+test_recommendation_api (test_project.LiveAPI.test_recommendation_api) ... 127.0.0.1 - - [25/Oct/2026 19:44:02] "POST /api/recommend HTTP/1.1" 200 -
 ok
-test_saved_scenario (test_project.LiveAPI.test_saved_scenario) ... 127.0.0.1 - - [25/Oct/2026 19:39:16] "POST /api/plans HTTP/1.1" 201 -
-127.0.0.1 - - [25/Oct/2026 19:39:16] "GET /api/plans HTTP/1.1" 200 -
+test_saved_scenario (test_project.LiveAPI.test_saved_scenario) ... 127.0.0.1 - - [25/Oct/2026 19:44:02] "POST /api/plans HTTP/1.1" 201 -
+127.0.0.1 - - [25/Oct/2026 19:44:02] "GET /api/plans HTTP/1.1" 200 -
 ok
 test_future_customer_is_not_eligible_before_first_purchase (test_training.SnapshotContracts.test_future_customer_is_not_eligible_before_first_purchase) ... ok
 test_future_transactions_cannot_change_features (test_training.SnapshotContracts.test_future_transactions_cannot_change_features) ... ok
@@ -63,6 +63,6 @@ test_incomplete_label_window_rejected (test_training.SnapshotContracts.test_inco
 test_label_window_is_subsequent_30_days (test_training.SnapshotContracts.test_label_window_is_subsequent_30_days) ... ok
 
 ----------------------------------------------------------------------
-Ran 50 tests in 3.153s
+Ran 50 tests in 2.876s
 
 OK
